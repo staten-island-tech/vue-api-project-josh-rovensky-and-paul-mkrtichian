@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-  <Pie v-if="loaded" :data="chartData"/>
+  <Pie id="chart" v-if="loaded" :data="chartData"/>
   </div>
 </template>
 
@@ -37,8 +37,9 @@ export default {
   labels: treeSpecies,
   datasets: [
     {
-/*       backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
- */      data: speciesCount
+    backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16', '#6af32b', '#083ea8','#edcd54'],
+     data: speciesCount
+      
     }
   ]
 }
@@ -55,3 +56,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.container{
+  height: 1000px;
+  width: 1000px;
+}
+</style>
