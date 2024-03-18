@@ -24,7 +24,7 @@ export default {
       const data = await response.json();
       const deadoralive = data.reduce((countObject, currentTree)=>{
         const species = currentTree.status;
-        if(species === "Alive"){
+        if(species in countObject){
           countObject[species] = countObject[species]+1;
         }else{
           countObject[species] = 1;
