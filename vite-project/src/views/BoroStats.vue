@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <Pie id="manhattan" v-if="loaded && Maloaded" :data="chartData"/>
-        <Pie id="queens" v-if="loaded && Quloaded" :data="QueensChartData"/>
-        <Pie id="bronx" v-if="bxLoaded" :data="chartData"/>
-        <Pie id="brooklyn" v-if="oaded" :data="chartData"/>
-        <Pie id="staten" v-if="Siloaded" :data="chartData"/>
+        <Pie id="manhattan" v-if="loaded && Maloaded" :data="MaChartData"/>
+        <Pie id="queens" v-if="loaded && Quloaded" :data="QuChartData"/>
+        <Pie id="bronx" v-if="loaded && Bxloaded" :data="BxChartData"/>
+        <Pie id="brooklyn" v-if="loaded && Brloaded" :data="BrChartData"/>
+        <Pie id="staten" v-if="loaded && Siloaded" :data="SiChartData"/>
     </div>
 </template>
 
@@ -55,19 +55,28 @@ export default {
     try {
       const response = await fetch('https://data.cityofnewyork.us/resource/uvpi-gqnh.json');
       const data = await response.json();
-      const displayOne = boroData("Manhattan", data)
-      const displayTwo = boroData("Queens", data)
+      const displayOne = boroData("Manhattan", data);
+      const displayTwo = boroData("Queens", data);
+      const displayThree = boroData("Bronx", data);
+      const displayFour = boroData("Brooklyn", data);
+      const displayFive = boroData("Staten Island", data);
 
  const options = {
   responsive: true,
   maintainAspectRatio: false
 }
       // console.log(treeCount, treeSpecies, speciesCount);
-      this.chartData = displayOne;
-      this.QueensChartData = displayTwo;
+      this.MaChartData = displayOne;
+      this.QuChartData = displayTwo;
+      this.BxChartData = displayThree;
+      this.BrChartData = displayFour;
+      this.SiChartData = displayFive;
       this.loaded = true;
       this.Maloaded = true;
       this.Quloaded = true;
+      this.Bxloaded = true;
+      this.Brloaded = true;
+      this.Siloaded = true;
       console.log(this.Maloaded);
     } catch (e) {
       console.error(e)
