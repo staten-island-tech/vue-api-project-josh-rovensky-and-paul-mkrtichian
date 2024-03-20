@@ -54,10 +54,12 @@ export default {
     }
   }
 }
+
 </script>
 <style scoped>
 .container2{
   height: 1000px;
   width: 1000px;
+  
 }
 </style>
