@@ -5,6 +5,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
+    <img alt="Tree logo" class="logo" src="@/assets/tree.png" width="250" height="250" />
 
 
     <div class="wrapper">
