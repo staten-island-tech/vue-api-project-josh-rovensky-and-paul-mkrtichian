@@ -6,8 +6,8 @@
 
 <script>
 import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale } from 'chart.js'
-ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale)
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 import {ref , onMounted } from "vue";
 export default {
   name: 'BarChart',
@@ -31,8 +31,8 @@ export default {
         }
         return countObject;
       }, {})
-      const treeSpecies = Object.keys(treeCount);
-      const speciesCount = Object.values(treeCount);
+      const treeSpecies = Object.keys(deadoralive);
+      const speciesCount = Object.values(deadoralive);
       const displayOne = {
   labels: treeSpecies,
   datasets: [
