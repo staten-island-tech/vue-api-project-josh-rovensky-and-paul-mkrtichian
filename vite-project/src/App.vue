@@ -12,9 +12,9 @@ import HelloWorld from './components/HelloWorld.vue'
       
 
       <nav>
-        <RouterLink to="/">Type of Trees</RouterLink>
-        <RouterLink to="/Boros">Trees in Boroughs</RouterLink>
-        <RouterLink to="/about">About</RouterLink>        
+        <RouterLink to="/">Types of Trees</RouterLink>
+        <RouterLink to="/Boros">Trees in Boros</RouterLink>
+        <RouterLink to="/about">Tree Health</RouterLink>        
       </nav>
     </div>
   </header>
