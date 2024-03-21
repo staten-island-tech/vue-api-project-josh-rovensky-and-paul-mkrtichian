@@ -60,6 +60,5 @@ export default {
 .container{
   height: 1000px;
   width: 1000px;
-  border: 10px solid black;
 }
 </style>
