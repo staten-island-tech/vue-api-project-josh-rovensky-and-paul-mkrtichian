@@ -14,7 +14,9 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Types of Trees</RouterLink>
         <RouterLink to="/Boros">Trees in Boros</RouterLink>
-        <RouterLink to="/about">Tree Health</RouterLink>        
+        <RouterLink to="/Health">Tree Health</RouterLink> 
+        <RouterLink to="/Dead"> Alive/Dead/Stump</RouterLink>
+
       </nav>
     </div>
   </header>
