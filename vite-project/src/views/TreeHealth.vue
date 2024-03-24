@@ -1,6 +1,6 @@
 <template>
     <div class="container3">
-    <Bar id="chart" v-if="loaded" :data="chartData"/>
+    <Bar id="chart" v-if="loaded" :data="chartData" :options = "chartOptions"/>
     </div>
   </template>
   
@@ -24,6 +24,7 @@
         const data = await response.json();
         const health = data.reduce((countObject, currentTree)=>{
           const species = currentTree.health;
+          if (!species) return countObject;
           if(species in countObject){
             countObject[species] = countObject[species]+1;
           }else{
@@ -34,12 +35,19 @@
         const treeSpecies = Object.keys(health);
         const speciesCount = Object.values(health);
         const displayOne = {
+        options: {
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
+        },
     labels: treeSpecies,
     datasets: [
       {
       backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16', '#6af32b', '#083ea8','#edcd54'],
-       data: speciesCount
-        
+       data: speciesCount,
+       label: "Tree Health",
       }
     ]
   }
@@ -49,8 +57,16 @@
   }
         console.log(health, treeSpecies, speciesCount);
         this.chartData = displayOne;
+        this.chartOptions = {
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
+        }
         this.loaded = true
       } catch (e) {
+        console.error(e)
       }
     }
   }
@@ -58,8 +74,8 @@
   </script>
   <style scoped>
   .container3{
-    height: 1000px;
-    width: 1000px;
+    height: 800px;
+    width: 800px;
     
   }
   </style>

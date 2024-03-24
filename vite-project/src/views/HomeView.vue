@@ -30,6 +30,7 @@ export default {
       const data = await response.json();
       const treeCount = data.reduce((countObject, currentTree)=>{
         const species = currentTree.spc_common;
+        if (!species) return countObject;
         if(species in countObject){
           countObject[species] = countObject[species]+1;
         }else{
@@ -64,7 +65,7 @@ export default {
 </script>
 <style scoped>
 .container{
-  height: 1000px;
-  width: 1000px;
+  height: 800px;
+  width: 800px;
 }
 </style>

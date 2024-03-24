@@ -1,9 +1,14 @@
 <template>
     <div class="container">
+        <h1>Trees in Manhattan</h1>
         <Pie id="manhattan" v-if="loaded && Maloaded" :data="MaChartData"/>
+        <h1>Trees in Queens</h1>
         <Pie id="queens" v-if="loaded && Quloaded" :data="QuChartData"/>
+        <h1>Trees in The Bronx</h1>
         <Pie id="bronx" v-if="loaded && Bxloaded" :data="BxChartData"/>
+        <h1>Trees in Brooklyn</h1>
         <Pie id="brooklyn" v-if="loaded && Brloaded" :data="BrChartData"/>
+        <h1>Trees in Staten Island</h1>
         <Pie id="staten" v-if="loaded && Siloaded" :data="SiChartData"/>
     </div>
 </template>
@@ -19,6 +24,7 @@ function boroData(boro, data) {
       console.log(results);
       const treeCount = results.reduce((countObject, currentTree)=>{
         const species = currentTree.spc_common;
+        if (!species) return countObject;
         if(species in countObject){
           countObject[species] = countObject[species]+1;
         }else{
@@ -87,7 +93,7 @@ export default {
 </script>
 <style scoped>
 .container{
-  height: 1000px;
-  width: 1000px;
+  height: 800px;
+  width: 800px;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="container2">
-  <Bar id="chart" v-if="loaded" :data="chartData"/>
+    <h1>Tree Status</h1>
+  <Bar id="chart" v-if="loaded" :data="chartData" :options = "chartOptions"/>
   </div>
 </template>
 
@@ -14,10 +15,15 @@ export default {
   components: { Bar },
   data: () => ({
     loaded: false,
-    chartData: null
+    chartData: null,
+    chartOptions: {
+  responsive: true,
+  maintainAspectRatio: false,
+}
   }),
   async mounted () {
     this.loaded = false
+    console.log()
 
     try {
       const response = await fetch('https://data.cityofnewyork.us/resource/uvpi-gqnh.json');
@@ -43,14 +49,25 @@ export default {
     }
   ]
 }
- const options = {
-  responsive: true,
-  maintainAspectRatio: false
-}
       console.log(deadoralive, treeSpecies, speciesCount);
       this.chartData = displayOne;
+      this.chartOptions = {
+          plugins: {
+            title: {
+              display: true,
+              text: "Tree Status",
+              font: {
+                size: 20,
+              } 
+            },
+            legend: {
+              display: false
+            }
+          }
+        }
       this.loaded = true
     } catch (e) {
+      console.error(e)
     }
   }
 }
@@ -58,8 +75,8 @@ export default {
 </script>
 <style scoped>
 .container2{
-  height: 1000px;
-  width: 1000px;
+  height: 800px;
+  width: 800px;
   
 }
 </style>
