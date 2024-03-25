@@ -1,6 +1,5 @@
 <template>
   <div class="container2">
-    <h1>Tree Status</h1>
   <Bar id="chart" v-if="loaded" :data="chartData" :options = "chartOptions"/>
   </div>
 </template>
@@ -9,7 +8,6 @@
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-import {ref , onMounted } from "vue";
 export default {
   name: 'BarChart',
   components: { Bar },
@@ -57,7 +55,7 @@ export default {
               display: true,
               text: "Tree Status",
               font: {
-                size: 20,
+                size: 30,
               } 
             },
             legend: {

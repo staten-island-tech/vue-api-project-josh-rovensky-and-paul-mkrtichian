@@ -17,8 +17,6 @@
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale } from 'chart.js'
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale);
-import {ref , onMounted } from "vue";
-
 function boroData(boro, data) {
   const results = data.filter((tree) => tree.boroname === boro)
       console.log(results);
@@ -66,11 +64,6 @@ export default {
       const displayThree = boroData("Bronx", data);
       const displayFour = boroData("Brooklyn", data);
       const displayFive = boroData("Staten Island", data);
-
- const options = {
-  responsive: true,
-  maintainAspectRatio: false
-}
       // console.log(treeCount, treeSpecies, speciesCount);
       this.MaChartData = displayOne;
       this.QuChartData = displayTwo;

@@ -8,13 +8,16 @@
   import { Bar } from 'vue-chartjs'
   import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
   ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-  import {ref , onMounted } from "vue";
   export default {
     name: 'BarChart',
     components: { Bar },
     data: () => ({
       loaded: false,
-      chartData: null
+      chartData: null,
+      chartOptions: {
+  responsive: true,
+  maintainAspectRatio: false,
+}
     }),
     async mounted () {
       this.loaded = false
@@ -51,14 +54,17 @@
       }
     ]
   }
-   const options = {
-    responsive: true,
-    maintainAspectRatio: false
-  }
         console.log(health, treeSpecies, speciesCount);
         this.chartData = displayOne;
         this.chartOptions = {
           plugins: {
+            title: {
+              display: true,
+              text: "Health of Trees in New York City",
+              font: {
+                size: 30,
+              }
+            },
             legend: {
               display: false
             }

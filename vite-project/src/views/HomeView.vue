@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-  <Pie id="chart" v-if="loaded" :data="chartData"/>
+  <Pie id="chart" v-if="loaded" :data="chartData" :options = "chartOptions"/>
   </div>
 </template>
 
@@ -8,19 +8,16 @@
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale } from 'chart.js'
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale)
-import {ref , onMounted } from "vue";
 export default {
   name: 'PieChart',
   components: { Pie },
   data: () => ({
     loaded: false,
     chartData: null,
-    plugins: {
-            title: {
-                display: true,
-                text: 'Trees in NYC'
-            }
-        }
+    chartOptions: {
+  responsive: true,
+  maintainAspectRatio: false,
+}
   }),
   async mounted () {
     this.loaded = false
@@ -50,12 +47,19 @@ export default {
     }
   ]
 }
- const options = {
-  responsive: true,
-  maintainAspectRatio: false
-}
       console.log(treeCount, treeSpecies, speciesCount);
       this.chartData = displayOne;
+      this.chartOptions = {
+          plugins: {
+            title: {
+              display: true,
+              text: "Trees in New York City",
+              font: {
+                size: 30,
+              },
+            },
+          }
+        }
       this.loaded = true
     } catch (e) {
       console.error(e)
