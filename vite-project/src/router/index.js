@@ -26,6 +26,11 @@ const router = createRouter({
       path: '/Dead',
       name: '/Dead',
       component: () => import('../views/DeadAlive.vue')
+    },
+    {
+      path: '/Problems',
+      name: '/Problems',
+      component: () => import('../views/TreeProblems.vue')
     }
   ]
 })
