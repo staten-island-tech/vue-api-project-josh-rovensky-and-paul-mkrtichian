@@ -15,6 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/Boros">Trees in Boros</RouterLink>
         <RouterLink to="/Health">Tree Health</RouterLink> 
         <RouterLink to="/Dead"> Alive/Dead/Stump</RouterLink>
+        <RouterLink to="/Problems"> Tree Problems</RouterLink>
 
       </nav>
     </div>
