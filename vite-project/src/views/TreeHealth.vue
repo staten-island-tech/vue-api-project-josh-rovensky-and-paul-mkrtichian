@@ -1,6 +1,5 @@
 <template>
     <div class="container3">
-      <h1> Tree Health</h1>
     <Bar id="chart" v-if="loaded" :data="chartData" :options = "chartOptions"/>
     </div>
   </template>

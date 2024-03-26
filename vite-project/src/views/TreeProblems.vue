@@ -1,7 +1,6 @@
 <template>
     <div class="container">
-    <h1>Tree Problems</h1>
-    <Pie id="chart" v-if="loaded" :data="chartData"/>
+    <Pie id="chart" v-if="loaded" :data="chartData" :options = "chartOptions"/>
     </div>
   </template>
   
@@ -50,10 +49,17 @@
       }
     ]
   }
-   const options = {
-    responsive: true,
-    maintainAspectRatio: false
-  }
+  this.chartOptions = {
+          plugins: {
+            title: {
+              display: true,
+              text: "Tree Problems",
+              font: {
+                size: 30,
+              }
+             },
+          }
+        }
         console.log(treeproblems, treeSpecies, speciesCount);
         this.chartData = displayOne;
         this.loaded = true

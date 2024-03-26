@@ -89,4 +89,9 @@ export default {
   height: 800px;
   width: 800px;
 }
+h1{
+  text-align: center;
+  color: rgb(107, 105, 105);
+  font-weight: bold;
+}
 </style>
